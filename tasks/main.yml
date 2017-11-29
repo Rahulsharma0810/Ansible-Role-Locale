@@ -1,0 +1,24 @@
+---
+# tasks file for roles/Locales
+- block:
+  - name: UPGRADE ALL PACKAGES
+    package:
+      name: '*'
+      state: latest
+
+  - name: REMOVE EXISTING /etc/environment
+    file:
+        path: /etc/environment
+        state: absent
+  - name: CREATE FILE /etc/environment
+    file: path=/etc/environment state=touch
+
+  - name: Adding Locale to /etc/environment
+    lineinfile:
+      path: /etc/environment
+      line: '{{ item }}'
+    with_items:
+    - "{{ LANG }}"
+    - "{{ LC_CTYPE }}"
+    - "{{ LC_ALL }}"
+  become: true
