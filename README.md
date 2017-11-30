@@ -18,7 +18,7 @@ Example Playbook
 
     - hosts: YOUR-HOST-OR-GROUP
       roles:
-    	- Locales
+    	- Ansible-Role-Locale
 
 License
 -------
@@ -28,7 +28,8 @@ MIT
 Author Information
 ------------------
 
-###Rahul Sharma
+Rahul Sharma
+------------
 
 [Github](https://github.com/Rahulsharma0810)
 
